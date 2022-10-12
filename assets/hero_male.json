@@ -1,72 +1,24 @@
-{"frames": {
-
-"idle_0.png":
 {
-	"frame": {"x":60,"y":1,"w":20,"h":44},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":0,"w":20,"h":44},
-	"sourceSize": {"w":45,"h":45}
-},
-"idle_1.png":
-{
-	"frame": {"x":145,"y":1,"w":20,"h":43},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":1,"w":20,"h":43},
-	"sourceSize": {"w":45,"h":45}
-},
-"idle_2.png":
-{
-	"frame": {"x":82,"y":1,"w":20,"h":44},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":0,"w":20,"h":44},
-	"sourceSize": {"w":45,"h":45}
-},
-"idle_3.png":
-{
-	"frame": {"x":104,"y":1,"w":20,"h":44},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":0,"w":20,"h":44},
-	"sourceSize": {"w":45,"h":45}
-},
-"shoot_0.png":
-{
-	"frame": {"x":35,"y":1,"w":23,"h":44},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":12,"y":0,"w":23,"h":44},
-	"sourceSize": {"w":45,"h":45}
-},
-"shoot_1.png":
-{
-	"frame": {"x":1,"y":1,"w":32,"h":44},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":11,"y":0,"w":32,"h":44},
-	"sourceSize": {"w":45,"h":45}
-},
-"shoot_2.png":
-{
-	"frame": {"x":126,"y":1,"w":17,"h":44},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":11,"y":0,"w":17,"h":44},
-	"sourceSize": {"w":45,"h":45}
-}},
-"animations": {
-	"idle": ["idle_0.png","idle_1.png","idle_2.png","idle_3.png"],
-	"shoot": ["shoot_0.png","shoot_1.png","shoot_2.png"]
-},
-"meta": {
-	"app": "https://www.codeandweb.com/texturepacker",
-	"version": "1.0",
-	"image": "hero_male.png",
-	"format": "RGBA8888",
-	"size": {"w":166,"h":46},
-	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:5420ebf200222273e4f775c620ee29d4:b133f2125415d581c53447120c75ec95:25a145a2a5ca915d8bef86688bfb80ac$"
-}
+  "frames": {
+    "196.png": {
+      "frame": { "x": 0, "y": 0, "w": 64, "h": 56 },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 56 },
+      "sourceSize": { "w": 64, "h": 56 },
+      "anchor": { "x": 0.921875, "y": 3.14286 }
+    }
+  },
+  "animations": {
+    "ulq": ["196.png"]
+  },
+  "meta": {
+    "app": "https://www.codeandweb.com/texturepacker",
+    "version": "1.0",
+    "image": "196.png",
+    "format": "RGBA8888",
+    "size": { "w": 64, "h": 56 },
+    "scale": "1",
+    "smartupdate": "$TexturePacker:SmartUpdate:572e42b8c3e8de3411be6496a0fb0c5d:b42fd05a8e39665d9772190dda92e85f:e0b0ddea797ab3c792adb6a7c37027cb$"
+  }
 }

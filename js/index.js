@@ -6,7 +6,7 @@ import Spawner from "./spawner.js";
 
 // Create a Pixi Application
 //Give dimensions of the canvas
-const canvasSize = 512;
+const canvasSize = 1024;
 const canvas = document.getElementById("mycanvas");
 const app = new PIXI.Application({
   view: canvas,

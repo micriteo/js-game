@@ -8,7 +8,7 @@ export default class Player {
 
     let sheet =
       PIXI.Loader.shared.resources["assets/hero_male.json"].spritesheet; //loading the spritesheet
-    this.player = new PIXI.AnimatedSprite(sheet.animations["idle"]); //creating the player
+    this.player = new PIXI.AnimatedSprite(sheet.animations["ulq"]); //creating the player
     this.player.animationSpeed = 0.1;
     this.player.play();
 
