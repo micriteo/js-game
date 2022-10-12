@@ -1,7 +1,8 @@
 export default class Spawner {
-  constructor({ create }) {
+  constructor({ app, create }) {
+    this.app = app;
     const spawnInterval = 1000; //in ms
-    this.maxSpawns = 20;
+    this.maxSpawns = 10;
     this.create = create;
     this.spawns = []; // array of spawned objects
     setInterval(() => this.spawn(), spawnInterval); //spawn new objects every spawnInterval
@@ -9,6 +10,7 @@ export default class Spawner {
 
   //Method that spawns new objects
   spawn() {
+    if (this.app.gameStarted === false) return;
     if (this.spawns.length < this.maxSpawns) {
       //if the number of spawned objects is less than the maximum number of spawns
       let spawn = this.create(); //create a new object
