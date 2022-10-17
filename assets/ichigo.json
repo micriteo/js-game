@@ -1,0 +1,52 @@
+{"frames": {
+
+    "mergi1.png":
+    {
+        "frame": {"x":308,"y":1,"w":93,"h":101},
+        "rotated": false,
+        "trimmed": true,
+        "spriteSourceSize": {"x":12,"y":11,"w":93,"h":101},
+        "sourceSize": {"w":105,"h":121},
+        "anchor": {"x":0.5,"y":0.5}
+    },
+    "mergi2.png":
+    {
+        "frame": {"x":1,"y":1,"w":102,"h":102},
+        "rotated": false,
+        "trimmed": true,
+        "spriteSourceSize": {"x":0,"y":11,"w":102,"h":102},
+        "sourceSize": {"w":105,"h":121},
+        "anchor": {"x":0.5,"y":0.5}
+    },
+    "mergi3.png":
+    {
+        "frame": {"x":105,"y":1,"w":98,"h":102},
+        "rotated": false,
+        "trimmed": true,
+        "spriteSourceSize": {"x":0,"y":11,"w":98,"h":102},
+        "sourceSize": {"w":105,"h":121},
+        "anchor": {"x":0.5,"y":0.5}
+    },
+    "mergi4.png":
+    {
+        "frame": {"x":205,"y":1,"w":101,"h":101},
+        "rotated": false,
+        "trimmed": true,
+        "spriteSourceSize": {"x":0,"y":13,"w":101,"h":101},
+        "sourceSize": {"w":105,"h":121},
+        "anchor": {"x":0.5,"y":0.5}
+    }},
+    "animations": {
+        "idle": ["mergi4.png","mergi1.png","mergi2.png","mergi3.png"]
+    },
+    "meta": {
+        "app": "https://www.codeandweb.com/texturepacker",
+        "version": "1.0",
+        "image": "ichigo3.png",
+        "format": "RGBA8888",
+        "size": {"w":402,"h":104},
+        "scale": "1",
+        "smartupdate": "$TexturePacker:SmartUpdate:ee0fe824aed815e223e6d2090ad3b187:e77b3631f6f243742464ba2f9325484c:4cde9d3ccb6636fef54dd3034c9896bd$"
+    }
+    }
+    

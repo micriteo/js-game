@@ -6,4 +6,24 @@
 
 body {
   font-family: sans-serif;
+  
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+
+}
+
+canvas{
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.score{
+
+  position: fixed;
+   color: white;
+   font-size: 30px;
+   user-select: none;
 }

@@ -1,18 +1,42 @@
 import * as PIXI from "pixi.js";
 import Victor from "victor";
+import { enemies } from "./globals.js";
 export default class enemy {
   constructor({ app, player }) {
     this.app = app;
     this.player = player;
+  
+    this.speed = 1 ;
 
-    const radius = 16;
-    this.speed = 1.5;
-    this.enemy = new PIXI.Graphics();
     let r = this.randomSpawnPoint();
+
+
+
+
+    let enemyName = enemies[Math.floor(Math.random() * enemies.length)];
+    this.speed = enemyName === "quickzee" ? 1 : 0.25;
+    let sheet = PIXI.Loader.shared.resources[`assets/${enemyName}.json`].spritesheet;
+
+    //let grimjowAtck = PIXI.Loader.shared.resources["assets/grimjow-attack.json"].spritesheet;
+    //let grimjowDie = PIXI.Loader.shared.resources["assets/grimjow-die.json"].spritesheet;
+    //let grimjowRun = PIXI.Loader.shared.resources["assets/grimjow-run.json"].spritesheet;
+
+    //this.die1 = new PIXI.AnimatedSprite(grimjowDie.animations["grimjow-die"]);
+    //this.attack1 = new PIXI.AnimatedSprite(grimjowAtck.animations["grimjow-attack"]);
+    //this.enemy= new PIXI.AnimatedSprite(grimjowRun.animations["grimjow-run"]);
+
+    this.die = new PIXI.AnimatedSprite(sheet.animations["die"]);
+    this.attack = new PIXI.AnimatedSprite(sheet.animations["attack"]);
+    this.enemy = new PIXI.AnimatedSprite(sheet.animations["walk"]);
+    this.enemy.animationSpeed = enemyName === "quickzee" ? 0.2 : 0.1;
+
+
+    this.enemy.play();
+
+    this.enemy.anchor.set(1);
+
     this.enemy.position.set(r.x, r.y);
-    this.enemy.beginFill(0xff0000, 1);
-    this.enemy.drawCircle(0, 0, radius);
-    this.enemy.endFill();
+
     app.stage.addChild(this.enemy);
   }
 
@@ -56,6 +80,7 @@ export default class enemy {
     let d = s.subtract(e); //vector for distance between enemy and player
     let v = d.normalize().multiplyScalar(this.speed * delta); //vector for direction of movement
     //converts the direction vector to a unit vector
+    this.enemy.scale.x = v.x < 0 ? 1 : -1;
     this.enemy.position.set(
       this.enemy.position.x + v.x,
       this.enemy.position.y + v.y
@@ -63,7 +88,11 @@ export default class enemy {
   }
 
   kill() {
-    this.app.stage.removeChild(this.enemy);
+    this.enemy.textures = this.die.textures;
+    this.enemy.loop = false;
+    this.enemy.onComplete = () => setTimeout(() => this.app.stage.removeChild(this.enemy), 30000);
+    this.enemy.play();
+
     clearInterval(this.interval);
   }
 
@@ -73,5 +102,8 @@ export default class enemy {
     if (this.attacking) return;
     this.attacking = true;
     this.interval = setInterval(() => this.player.attack(), 500);
+    this.enemy.textures = this.attack.textures;
+    this.enemy.animationSpeed = 0.1;
+    this.enemy.play();
   }
 }

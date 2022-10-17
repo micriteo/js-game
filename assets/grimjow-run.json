@@ -1,0 +1,55 @@
+{"frames": {
+
+"run1.png":
+{
+	"frame": {"x":88,"y":1,"w":75,"h":72},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":10,"w":75,"h":72},
+	"sourceSize": {"w":98,"h":85}
+},
+"run2.png":
+{
+	"frame": {"x":1,"y":1,"w":85,"h":75},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":7,"w":85,"h":75},
+	"sourceSize": {"w":98,"h":85}
+},
+"run3.png":
+{
+	"frame": {"x":310,"y":1,"w":79,"h":72},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":10,"w":79,"h":72},
+	"sourceSize": {"w":98,"h":85}
+},
+"run4.png":
+{
+	"frame": {"x":236,"y":1,"w":74,"h":72},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":10,"w":74,"h":72},
+	"sourceSize": {"w":98,"h":85}
+},
+"run5.png":
+{
+	"frame": {"x":162,"y":1,"w":75,"h":72},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":10,"w":75,"h":72},
+	"sourceSize": {"w":82,"h":85}
+}},
+"animations": {
+	"grimjow-run": ["run1.png","run2.png","run3.png","run4.png","run5.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "grimjow-run.png",
+	"format": "RGBA8888",
+	"size": {"w":390,"h":77},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c7b95a47e9594ac0e59a94a14257e674:ea8f2356cf882d331e622769563cad50:1d9c1b0ef9edfc69de6af81770ef348b$"
+}
+}

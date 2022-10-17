@@ -4,13 +4,26 @@ export default class Player {
   constructor({ app }) {
     //app refers to the PIXI application
     this.app = app;
-    const playerWidth = 32;
+
 
     let sheet =
-      PIXI.Loader.shared.resources["assets/hero_male.json"].spritesheet; //loading the spritesheet
-    this.player = new PIXI.AnimatedSprite(sheet.animations["ulq"]); //creating the player
-    this.player.animationSpeed = 0.1;
+      PIXI.Loader.shared.resources["assets/ichigo.json"].spritesheet; //loading the spritesheet //loading the spritesheet
+
+     sheet.x = 30;
+     sheet.y = 120;
+
+    let sheet2 =  PIXI.Loader.shared.resources["assets/shooting.json"].spritesheet; //loading the spritesheet //loading the spritesheet
+
+      this.idle = new PIXI.AnimatedSprite(sheet.animations["idle"]);
+       //creating the animation //creating the animation
+      this.shoot = new PIXI.AnimatedSprite(sheet2.animations["shoot"]);
+      this.shoot.animationSpeed = 0.003;
+
+
+    this.player = new PIXI.AnimatedSprite(sheet.animations["idle"]); //creating the player
+    this.player.animationSpeed = 0.09; //setting the animation speed
     this.player.play();
+
 
     //this.player = new PIXI.Sprite(PIXI.Texture.WHITE);
     this.player.anchor.set(0.5); //anchor represents the reference of the sprite on the Ox and Oy scale
@@ -56,6 +69,15 @@ export default class Player {
     this.app.stage.addChild(this.healthBar);
   }
 
+
+  set scale(s) {
+    this.player.scale.set(s);
+  }
+
+  get scale() {
+    return this.player.scale.x;
+  }
+
   //Method that returns the position of the player
   get width() {
     return this.player.width;
@@ -83,9 +105,14 @@ export default class Player {
         cursorPosition.x - this.player.position.x
       ) +
       Math.PI / 2;
-    this.player.rotation = angle;
+    this.rotation = angle;
+    this.player.scale.x = cursorPosition.x < this.player.position.x ? -1 : 1; //flipping the sprite
 
     if (mouse.buttons !== this.lastMouseButton) {
+
+      this.player.textures = mouse.buttons === 0 ? this.idle.textures : this.shoot.textures;
+      this.player.play();
+
       this.shooting.shoot = mouse.buttons !== 0;
       this.lastMouseButton = mouse.buttons;
     }

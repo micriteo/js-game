@@ -6,8 +6,8 @@ export default class Shooting {
     this.player = player;
     this.bulletSpeed = 4;
     this.bullets = []; //array of bullets
-    this.bulletRadius = 8;
-    this.maxBullets = 3;
+    this.bulletRadius = 100; //radius of the bullet
+    this.maxBullets = 5;//maximum number of bullets
   }
 
   //Method that shoots bullets
@@ -31,12 +31,13 @@ export default class Shooting {
     this.bullets.forEach((b) => this.app.stage.addChild(b)); //adds the bullets back to the stage in order to keep the numbers of bullets limited
     //otherwise they would increase indefinitely
 
-    const bullet = new PIXI.Graphics(); //creates a new bullet
-    bullet.position.set(this.player.position.x, this.player.position.y); //sets the position of the bullet to the position of the player
-    bullet.beginFill(0x000000, 1);
-    bullet.drawCircle(0, 0, this.bulletRadius);
-    bullet.endFill();
-    let angle = this.player.player.rotation - Math.PI / 2; //angle of the bullet
+    const bullet = new PIXI.Sprite(PIXI.Loader.shared.resources["bullet"].texture); //creates a new bullet
+    bullet.anchor.set(0.5); //sets the anchor point to the center of the bullet
+    bullet.scale.set(0.1); //scales the bullet
+    bullet.position.set(this.player.position.x, this.player.position.y);
+    bullet.rotation = this.player.rotation / 2  + 1 //rotates the bullet to face the player
+
+    let angle = this.player.rotation - Math.PI / 2; //angle of the bullet
     bullet.velocity = new PIXI.Point(
       Math.cos(angle) * this.bulletSpeed,
       Math.sin(angle) * this.bulletSpeed

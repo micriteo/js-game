@@ -1,0 +1,39 @@
+{"frames": {
+
+"attack1.png":
+{
+	"frame": {"x":1,"y":257,"w":169,"h":129},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":11,"y":40,"w":169,"h":129},
+	"sourceSize": {"w":180,"h":184}
+},
+"attack2.png":
+{
+	"frame": {"x":1,"y":1,"w":180,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":40,"w":180,"h":126},
+	"sourceSize": {"w":180,"h":184}
+},
+"attack3.png":
+{
+	"frame": {"x":1,"y":129,"w":174,"h":126},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":40,"w":174,"h":126},
+	"sourceSize": {"w":180,"h":184}
+}},
+"animations": {
+	"grimjow-attack": ["attack1.png","attack2.png","attack3.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "grimjow-attack.png",
+	"format": "RGBA8888",
+	"size": {"w":182,"h":387},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1fea287bc9687b3eb6608d1b395ebf53:e79d4aeea7225ffaf608e3794203cff3:1d9c1b0ef9edfc69de6af81770ef348b$"
+}
+}
