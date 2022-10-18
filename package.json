@@ -1,5 +1,5 @@
 {
-  "name": "snowpack-pixijs",
+  "name": "js-game",
   "version": "1.0.0",
   "description": "Snowpack & Pixi.js template",
   "main": "index.js",
@@ -21,9 +21,12 @@
   },
   "dependencies": {
     "@pixi/particle-emitter": "^5.0.7",
+    "canvas-confetti": "^1.5.1",
     "matter-js": "^0.15.0",
+    "pixi": "^0.3.1",
     "pixi-particles": "^4.3.1",
-    "pixi.js": "^5.3.7",
+    "pixi.js": "^5.3.12",
+    "poly-decomp": "^0.3.0",
     "victor": "^1.1.0"
   },
   "repository": {

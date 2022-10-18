@@ -30,7 +30,6 @@ backgroundSprite.height = canvasSize;
 app.stage.addChild(backgroundSprite);
 PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
- 
 
 
 initGame();
@@ -53,8 +52,9 @@ async function initGame() {
 
     let gamePreIntroScene= createScene("You Against the World", "Click to Continue"); //create a scene for the intro
     let gameStartScene = createScene("You Against the World", "Click to Start"); //create a scene for the start of the game
-    let gameOverScene = createScene("You Against the World","Game Over"); //create a scene for the game over
-    let screenScore = createScene("Your current score is " + scoreNumber); //create a scene for the score
+    let gameOverScene = createScene("You Against the World","Game Over"); //create a scene for the game over'
+    //let screenScore = createScene("Your current score is " + scoreNumber);
+     //create a scene for the score
     
     //Function that moves the square according to mouse position
     //delta is the time between frames
@@ -65,7 +65,7 @@ async function initGame() {
       gamePreIntroScene.visible = app.gameState === GameState.PREINTRO; //if the game state is preintro, the scene is visible
       gameStartScene.visible = app.gameState === GameState.START; //if the game has not started, the start scene is visible//if the game is over, the game over scene is visible
       gameOverScene.visible = app.gameState === GameState.GAMEOVER;
-      screenScore.visible = app.gameState === GameState.RUNNING;
+      //screenScore.visible = app.gameState === GameState.RUNNING;
 
       switch(app.gameState) //switch case for the game state
       {
@@ -81,13 +81,23 @@ async function initGame() {
               player.scale = 0.9;
               app.weather.enableSound();
               player.update(delta);
+  
+
+             var score = new PIXI.Text("Your current score is: 0", new PIXI.TextStyle(subTextStyle));
+              score.x = 10;
+              score.y = 10;
+
+    
+              score.text = ("Your current score is ") + scoreNumber;
+              app.stage.addChild(score);
+              
               eSpawner.spawns.forEach((enemy) => enemy.update(delta)); //we go for all the enemies in the array and we update them
               bulletHit({
                 bullets: player.shooting.bullets,
                 enemies: eSpawner.spawns,
                 bulletRadius: 8,
                 enemyRadius: 16,
-              });
+              })
             break;
         default:
         break;
@@ -108,8 +118,9 @@ function bulletHit({ bullets, enemies, bulletRadius, enemyRadius }) {
       if (distance < bulletRadius + enemyRadius) {
         enemies.splice(index, 1);
         enemy.kill();
-        scoreNumber += 1;
-        
+        scoreNumber = scoreNumber + 1;
+        console.log(scoreNumber);
+        return scoreNumber;
       }
     });
   });
@@ -142,9 +153,6 @@ async function loadAssets() {
     enemies.forEach((e) => PIXI.Loader.shared.add(`assets/${e}.json`));
     PIXI.Loader.shared.add("bullet", "assets/bullet.png");
     PIXI.Loader.shared.add("rain", "assets/rain.png");
-    PIXI.Loader.shared.add("assets/grimjow-attack.json");
-    PIXI.Loader.shared.add("assets/grimjow-run.json");
-    PIXI.Loader.shared.add("assets/grimjow-die.json");
     PIXI.Loader.shared.add("assets/ichigo.json");
     PIXI.Loader.shared.add("assets/shooting.json");
     PIXI.Loader.shared.onComplete.add(resolve);
@@ -159,7 +167,6 @@ function clickHandler() { //when the user clicks on the canvas, the game starts
   {
     case GameState.PREINTRO:  //if the game state is preintro, the game starts
     app.gameState = GameState.INTRO;
-    //music.play();
     break;
     case GameState.START:
       app.gameState = GameState.RUNNING;
@@ -167,15 +174,6 @@ function clickHandler() { //when the user clicks on the canvas, the game starts
       default:
       break;
   }
-
-}
-
-
-
-function scoreCalculating()
-{
-  scoreNumber++;
-  const score = new PIXI.Text("Score: " + scoreNumber, new PIXI.TextStyle(textStyle));
 }
 
 document.addEventListener("click", clickHandler); 

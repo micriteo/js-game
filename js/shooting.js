@@ -8,10 +8,14 @@ export default class Shooting {
     this.bullets = []; //array of bullets
     this.bulletRadius = 100; //radius of the bullet
     this.maxBullets = 5;//maximum number of bullets
+    this.audio = new Audio("assets/cero.mp3");
   }
 
   //Method that shoots bullets
   fire() {
+    this.audio.currentTime = 0;
+    this.audio.volume = 0.1;
+    this.audio.play();
     //Added this condition to limit the number of bullets
     //Otherwise they would increase indefinitely
     if (this.bullets.length >= this.maxBullets) {

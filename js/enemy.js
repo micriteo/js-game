@@ -17,13 +17,7 @@ export default class enemy {
     this.speed = enemyName === "quickzee" ? 1 : 0.25;
     let sheet = PIXI.Loader.shared.resources[`assets/${enemyName}.json`].spritesheet;
 
-    //let grimjowAtck = PIXI.Loader.shared.resources["assets/grimjow-attack.json"].spritesheet;
-    //let grimjowDie = PIXI.Loader.shared.resources["assets/grimjow-die.json"].spritesheet;
-    //let grimjowRun = PIXI.Loader.shared.resources["assets/grimjow-run.json"].spritesheet;
-
-    //this.die1 = new PIXI.AnimatedSprite(grimjowDie.animations["grimjow-die"]);
-    //this.attack1 = new PIXI.AnimatedSprite(grimjowAtck.animations["grimjow-attack"]);
-    //this.enemy= new PIXI.AnimatedSprite(grimjowRun.animations["grimjow-run"]);
+  
 
     this.die = new PIXI.AnimatedSprite(sheet.animations["die"]);
     this.attack = new PIXI.AnimatedSprite(sheet.animations["attack"]);
@@ -38,6 +32,7 @@ export default class enemy {
     this.enemy.position.set(r.x, r.y);
 
     app.stage.addChild(this.enemy);
+    this.audio = new Audio("assets/squelch.mp3");
   }
 
   get position() {
@@ -88,11 +83,13 @@ export default class enemy {
   }
 
   kill() {
+    this.audio.currentTime = 0;
+    this.audio.play();
+    this.audio.volume = 0.1;
     this.enemy.textures = this.die.textures;
     this.enemy.loop = false;
     this.enemy.onComplete = () => setTimeout(() => this.app.stage.removeChild(this.enemy), 30000);
     this.enemy.play();
-
     clearInterval(this.interval);
   }
 
